@@ -1,5 +1,5 @@
 {
-  "name": "radiorefeference",
+  "name": "radioreference",
   "version": "0.0.2",
   "description": "A library to collect frequency station info from radioreference",
   "main": "index.js",
