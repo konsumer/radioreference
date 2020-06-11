@@ -1,0 +1,42 @@
+<head>
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+	<title>radioreference</title>
+	<style>
+        body {
+            font-size: 125%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<form class="pure-form pure-form-aligned">
+    <fieldset>
+        <legend>Radio Reference</legend>
+        <div class="pure-control-group">
+	        <label for="zipcode">Zipcode</label>
+	        <input id="zipcode" name="zipcode" class="pure-input-2-3"  />
+	    </div>
+
+		<div class="pure-control-group">
+	        <label for="type">Preset Type</label>
+	        <select id="type" name="type" class="pure-input-2-3" >
+				<option>sdrtouch</option>
+				<option>gqrx</option>
+			</select>
+		</div>
+		<div class="pure-control-group">
+        	<button type="submit" class="pure-button pure-button-primary">GET</button>
+    	</div>
+    </fieldset>
+</form>
+
+
+<script>
+	document.forms[0].onsubmit = (e) => {
+		e.preventDefault()
+		document.location = `/api/${e.target.type.value}?zip=${e.target.zipcode.value}`
+	}
+</script>
+
+</body>
