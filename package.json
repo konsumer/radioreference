@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "test": "node src/test.js | tap-mocha-reporter spec",
-    "build": "pkg --public bin/gqrx && pkg --public bin/sdrtouch"
+    "cli": "pkg --public bin/gqrx && pkg --public bin/sdrtouch",
+    "start": "now dev",
+    "deploy": "now"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   },
   "homepage": "https://github.com/konsumer/radioreference#readme",
   "devDependencies": {
+    "now": "^19.0.1",
     "pkg": "^4.4.8",
     "tap-mocha-reporter": "^5.0.1",
     "zora": "^3.1.9"

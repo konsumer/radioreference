@@ -69,7 +69,7 @@ const gqrxGetColor = tag => {
   if (tag.match(/fire/i)) {
     return randomColor({ hue: 'orange' })
   }
-  if (tag.match(/police/i) || tag.match(/fbi/i)) {
+  if (tag.match(/police/i) || tag.match(/fbi/i) || tag.match(/law/i)) {
     return randomColor({ hue: 'blue' })
   }
   if (tag.match(/school/i) || tag.match(/education/i)) {
