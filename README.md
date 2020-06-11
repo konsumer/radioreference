@@ -23,7 +23,7 @@ async function mine(){
 
 There are also `gqrx` and `sdrtouch` fucntions exported from `radioreference`, that both take the data-object as input and output the format of bookmarks for each program.
 
-I also included some tools to convert to different SDR preset-formats:
+These are also available as CLI programs:
 
 ```sh
 git clone git@github.com:konsumer/radioreference.git
