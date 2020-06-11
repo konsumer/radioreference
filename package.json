@@ -2,10 +2,10 @@
   "name": "radioreference",
   "version": "0.0.2",
   "description": "A library to collect frequency station info from radioreference",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "node test.js | tap-mocha-reporter spec",
-    "build": "pkg --public gqrx && pkg --public sdrtouch"
+    "test": "node src/test.js | tap-mocha-reporter spec",
+    "build": "pkg --public bin/gqrx && pkg --public bin/sdrtouch"
   },
   "repository": {
     "type": "git",
@@ -20,15 +20,16 @@
   "homepage": "https://github.com/konsumer/radioreference#readme",
   "devDependencies": {
     "pkg": "^4.4.8",
-    "randomcolor": "^0.5.4",
     "tap-mocha-reporter": "^5.0.1",
     "zora": "^3.1.9"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "follow-redirects": "^1.11.0"
+    "follow-redirects": "^1.11.0",
+    "inflection": "^1.12.0",
+    "randomcolor": "^0.5.4"
   },
   "files": [
-    "index.js"
+    "src/index.js"
   ]
 }
