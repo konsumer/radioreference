@@ -9,6 +9,7 @@ These are also available as standalone programs, in [releases](https://github.co
 ## TODO
 
 * handle trunked systemns (eg [this](https://www.radioreference.com/apps/db/?sid=6830))
+* output hackrf presets (portapack)
 
 ### Install
 
