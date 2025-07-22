@@ -22,8 +22,8 @@ export default async function radioreference(zip) {
   }
 
   for (const subgroup of doc.querySelectorAll('.mb-3')) {
-    const groupTitle = subgroup.querySelector('h4')?.text?.trim() || 'Unknown'
-    const subgroupTitle = subgroup.querySelector('h5')?.text?.trim() || groupTitle
+    const groupTitle = subgroup.querySelector('h4')?.text?.trim() || null
+    const subgroupTitle = subgroup.querySelector('h5')?.text?.trim() || null
     const anchor = subgroup.querySelector('a.anchor[id^="scid-"]')
     const scid = anchor?.getAttribute('id')?.replace('scid-', '') || null
     const table = subgroup.querySelector('table')
