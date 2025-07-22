@@ -2,44 +2,25 @@
 
 This will allow you to collect info about radio frequencies in a specfic zipcode from [radioreference](https://www.radioreference.com/).
 
-You can use it on the web, [here](https://sdrtouch.dkonsumer.now.sh)
-
-These are also available as standalone programs, in [releases](https://github.com/konsumer/radioreference/releases), so you don't need to install anything (not even node).
-
-## TODO
-
-* handle trunked systemns (eg [this](https://www.radioreference.com/apps/db/?sid=6830))
-* output hackrf presets (portapack)
-
-### Install
+## Install
 
 ```sh
 npm i radioreference
 ```
 
-### Usage
+## Usage
 
 ```js
-const { radioreference } = require('radioreference')
+import radioreference from 'radioreference'
 
-async function mine(){
-  const portlandRadio = await radioreference(97239)
-  console.log(portlandRadio)
-}
+const pdx = await radioreference(97239)
+console.log(pdx)
 ```
 
-There are also `gqrx` and `sdrtouch` fucntions exported from `radioreference`, that both take the data-object as input and output the format of bookmarks for each program.
+## TODO
 
-These are also available as CLI programs:
-
-```sh
-git clone git@github.com:konsumer/radioreference.git
-cd radioreference
-npm i
-
-# create bookmark file for Gqrx
-./bin/gqrx 97239 > ~/.config/gqrx/bookmarks.csv
-
-# create presets for sdrtouch
-./bin/sdrtouch 97239 > SDRTouchPresets.xml
-```
+- pre-made converters for popular preset formats (chirp, sdrtouch, hackrf)
+- handle trunked systems (eg [this](https://www.radioreference.com/apps/db/?sid=6830))
+- handle ham: (eg [this](https://www.radioreference.com/db/ham/search/?zip=97239)
+- handle metro (eg [this](https://www.radioreference.com/db/browse/mid/44))
+- handle state (eg [this](https://www.radioreference.com/db/browse/stid/41))
