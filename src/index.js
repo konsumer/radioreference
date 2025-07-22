@@ -40,7 +40,7 @@ export default async function radioreference(zip) {
             license: cells[1]?.text?.trim() || null,
             type: cells[2]?.text?.trim() || null,
             tone: cells[3]?.text?.trim() || null,
-            alphaTag: cells[4]?.text?.trim() || null,
+            alpha: cells[4]?.text?.trim() || null,
             description: cells[5]?.text?.trim() || null,
             mode: cells[6]?.text?.trim() || null,
             tag: cells[7]?.text?.trim() || null

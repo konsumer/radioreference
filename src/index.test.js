@@ -19,7 +19,7 @@ describe('Radio Reference', () => {
       license: 'WPEI422',
       type: 'BM',
       tone: null,
-      alphaTag: 'Portland Civ Def',
+      alpha: 'Portland Civ Def',
       description: 'Portland Civil Defense',
       mode: 'FM',
       tag: 'Emergency Ops'
@@ -32,7 +32,7 @@ describe('Radio Reference', () => {
       license: null,
       type: 'RM',
       tone: '351 DPL',
-      alphaTag: 'Concordia U Sec',
+      alpha: 'Concordia U Sec',
       description: 'Security Dispatch',
       mode: 'FMN',
       tag: 'Security'
