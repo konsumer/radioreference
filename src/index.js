@@ -1,26 +1,8 @@
 import { parse } from 'node-html-parser'
 
-export default async function radioreference(zip) {
-  const r = await fetch('https://www.radioreference.com/db/search/', {
-    headers: {
-      'content-type': 'application/x-www-form-urlencoded'
-    },
-    body: `zip=${zip}`,
-    method: 'POST'
-  })
-
-  if (!r.redirected) {
-    throw new Error('Not found.')
-  }
-
-  const doc = parse(await r.text())
-
-  const out = {
-    zip: parseInt(zip),
-    ctid: parseInt(r.url.split('/').pop()),
-    frequencies: []
-  }
-
+export function parsePage(body) {
+  const doc = parse(body)
+  const frequencies = []
   for (const subgroup of doc.querySelectorAll('.mb-3')) {
     const groupTitle = subgroup.querySelector('h4')?.text?.trim() || null
     const subgroupTitle = subgroup.querySelector('h5')?.text?.trim() || null
@@ -46,12 +28,32 @@ export default async function radioreference(zip) {
           }
 
           if (frequency.frequency) {
-            out.frequencies.push(frequency)
+            frequencies.push(frequency)
           }
         }
       }
     }
   }
+  return frequencies
+}
 
-  return out
+
+export default async function radioreference(zip) {
+  const r = await fetch('https://www.radioreference.com/db/search/', {
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    body: `zip=${zip}`,
+    method: 'POST'
+  })
+
+  if (!r.redirected) {
+    throw new Error('Not found.')
+  }
+
+  return {
+    zip: parseInt(zip),
+    ctid: parseInt(r.url.split('/').pop()),
+    frequencies: await parsePage(await r.text())
+  }
 }
