@@ -13,7 +13,7 @@ export default async function radioreference(zip) {
     throw new Error('Not found.')
   }
 
-  const doc = parse(await fetch(r.url).then((r) => r.text()))
+  const doc = parse(await r.text())
 
   const out = {
     zip: parseInt(zip),
